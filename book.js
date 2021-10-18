@@ -11,8 +11,7 @@ const addBook = (title, author) => {
 
 const removeBook = (index) => {
   const remove = awesomeBooks[index];
-  awesomeBooks = awesomeBooks.filter(item => item !== remove
-  );
+  awesomeBooks = awesomeBooks.filter((item) => item !== remove);
   return awesomeBooks;
 };
 
@@ -29,12 +28,12 @@ const addToLocalStorage = (title, author) => {
 
 const editLocalStorage = (index) => {
   const books = getLocalstorage();
-  const items = books.filter(item => item !== books[index]);
+  const items = books.filter((item) => item !== books[index]);
   localStorage.setItem('books', JSON.stringify(items));
 };
 
 function loadBook(obj) {
-  let items = obj.map(item => `<article class="list">
+  let items = obj.map((item) => `<article class="list">
     <p class="book-title">${item.title}</p>
     <p class="author-author">${item.author}</p>
     <button class="remove-btn">Remove</button>
@@ -48,8 +47,7 @@ function loadBook(obj) {
       loadBook(removeBook(index));
       editLocalStorage(index);
     });
-  });
-
+  })
 }
 const backToDefault = () => {
   authorName.value = '';
