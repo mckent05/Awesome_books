@@ -1,0 +1,22 @@
+{
+  "name": "awesome_books",
+  "version": "1.0.0",
+  "description": "package JSon",
+  "main": "book.js",
+  "scripts": {
+    "test": "book"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mckent05/Awesome_books.git"
+  },
+  "keywords": [
+    "book"
+  ],
+  "author": "tope",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mckent05/Awesome_books/issues"
+  },
+  "homepage": "https://github.com/mckent05/Awesome_books#readme"
+}
