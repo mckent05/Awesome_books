@@ -4,7 +4,7 @@
 > I created this project by first designing it using wireframes.
 
 # Live View
-> To view this project live, please visit this [page](https://mckent05.github.io/Portfolio_Project/mobile.html)
+> To view this project live, please visit this [page](https://mckent05.github.io/Awesome_books/books.html)
 
 # Getting Started
 
