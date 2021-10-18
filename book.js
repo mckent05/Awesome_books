@@ -47,7 +47,7 @@ function loadBook(obj) {
       loadBook(removeBook(index));
       editLocalStorage(index);
     });
-  })
+  });
 }
 const backToDefault = () => {
   authorName.value = '';
