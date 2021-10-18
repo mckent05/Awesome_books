@@ -11,7 +11,7 @@ const addBook = (title, author) => {
 
 const removeBook = (index) => {
   const remove = awesomeBooks[index];
-  awesomeBooks = awesomeBooks.filter( item => {
+  awesomeBooks = awesomeBooks.filter(function(item) {
     if (item !== remove) {
       return item;
     }
@@ -19,7 +19,9 @@ const removeBook = (index) => {
   return awesomeBooks;
 };
 
-const getLocalstorage = () => localStorage.getItem('books') ? JSON.parse(localStorage.getItem('books')) : [];
+function getLocalstorage() {
+    return localStorage.getItem('books') ? JSON.parse(localStorage.getItem('books')) : [];
+}
 
 const addToLocalStorage = (title, author) => {
   const book = { title, author };
@@ -39,12 +41,14 @@ const editLocalStorage = (index) => {
 };
 
 function loadBook(obj) {
-  let items = obj.map(item => `<article class="list">
+  let items = obj.map(function (item) {
+    return  `<article class="list">
     <p class="book-title">${item.title}</p>
     <p class="author-author">${item.author}</p>
     <button class="remove-btn">Remove</button>
     <hr>
-  </article>`);
+  </article>`;
+  });
   items = items.join('');
   books.innerHTML = items;
   const deleteBookBtn = document.querySelectorAll('.remove-btn');
@@ -54,9 +58,9 @@ function loadBook(obj) {
       editLocalStorage(index);
     });
   });
-
 }
-let backToDefault = () => {
+
+const backToDefault = () => {
   authorName.value = '';
   bookTitle.value = '';
 };
@@ -70,7 +74,7 @@ form.addEventListener('submit', (e) => {
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-  let items = getLocalstorage();
+  const items = getLocalstorage();
   awesomeBooks = items;
   loadBook(awesomeBooks);
 });
