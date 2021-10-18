@@ -22,12 +22,13 @@ Additional description about the project and its features.
 - JS - Javascript
 
 ## Authors
-
+GitHub:
 @mckent05: Akinlade Temitope
+@Lichapa: Mphatso Lichapa
 
 - GitHub: [@githubhandle](https://github.com/mckent05)
 - Twitter: [@twitterhandle](https://twitter.com/mckent05)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/Akinlade Temitope)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/AkinladeTemitope)
 
 
 ## 🤝 Contributing
