@@ -23,14 +23,14 @@ class AwesomeBooks {
     return localStorage.getItem('books') ? JSON.parse(localStorage.getItem('books')) : [];
   }
 
-  addToLocalStorage(title, author) {
+  static addToLocalStorage(title, author) {
     const book = { title, author };
     const items = AwesomeBooks.getLocalStorage();
     items.push(book);
     localStorage.setItem('books', JSON.stringify(items));
   }
 
-  editLocalStorage = (index) => {
+  static editLocalStorage = (index) => {
     const books = AwesomeBooks.getLocalStorage();
     const items = books.filter((item) => item !== books[index]);
     localStorage.setItem('books', JSON.stringify(items));
@@ -50,7 +50,7 @@ class AwesomeBooks {
       btn.addEventListener('click', () => {
         this.removeBook(index);
         this.loadBook();
-        this.editLocalStorage(index);
+        AwesomeBooks.editLocalStorage(index);
       });
     });
   }
@@ -71,7 +71,7 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
   newBook.addBook(bookTitle.value, authorName.value);
   newBook.loadBook();
-  newBook.addToLocalStorage(bookTitle.value, authorName.value);
+  AwesomeBooks.addToLocalStorage(bookTitle.value, authorName.value);
   AwesomeBooks.backToDefault();
 });
 
