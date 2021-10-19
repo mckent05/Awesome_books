@@ -2,7 +2,9 @@ const form = document.querySelector('.add_book');
 const bookTitle = document.querySelector('#title');
 const authorName = document.querySelector('#author');
 const books = document.querySelector('.books');
-const alert = document.querySelector('.alert')
+const alert = document.querySelector('.alert');
+const links = document.querySelectorAll('.links a')
+const pages = document.querySelectorAll('.page')
 class AwesomeBooks {
   constructor(myBooks) {
     myBooks = [];
@@ -78,6 +80,24 @@ class AwesomeBooks {
   }
 
 }
+
+links.forEach((link) => {
+  link.addEventListener('click', (e) => {
+    const id =e.currentTarget.getAttribute("href").slice(1)
+    link.parentElement.classList.add('active')
+    links.forEach((myLink) => {
+      if (myLink !== link) {
+        myLink.parentElement.classList.remove('active')
+      }
+    })
+    pages.forEach((page) => {
+      page.classList.remove('active')
+    })
+    const displaypage = document.getElementById(id)
+    displaypage.classList.add('active')
+  })
+  
+})
 
 const newBook = new AwesomeBooks();
 

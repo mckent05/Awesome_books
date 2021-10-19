@@ -9,28 +9,54 @@
 </head>
 <body>
     <header class="main-header">
-        <nav></nav>
-        <section class="list-books page">
+        <nav class="nav">
+            <div class="nav-cont">
+                <a href="#" class="logo">Awesome Books.</a>
+                <div class="links-cont">
+                    <ul class="nav-links">
+                        <li class="links "><a href="#book-list">list</a></li>
+                        <li class="links"><a href="#add_books">add new</a></li>
+                        <li class="links active"><a href="#contact"> contact</a></li>
+                    </ul>
+                </div>
+            </div> 
+        </nav>
+        <section class="list-books page" id="book-list">
             <div class="book-cont">
                 <h1 class="book-header">All Awesome books</h1>
                 <p class="alert">Book Added</p>
                 <div class="books">
                     
                 </div>
-                <form action="#" class="add_book">
-                    <h2 class="form-title">Add a book</h2>
-                    <input type="text" id="title" placeholder="Title" required>
-                    <input type="text" id="author" placeholder="Author" required>
-                    <div class="btn-cont">
-                        <button type="submit" role="button" class="submit-btn">Add</button>
-                    </div>
-                   
-                </form>
             </div>
         </section>
-        <section class="add_books page"></section>
-        <section class="contact page"></section>
+        <section class="add-books page" id="add_books">
+            <form action="#" class="add_book">
+                <h2 class="form-title">Add a book</h2>
+                <input type="text" id="title" placeholder="Title" required>
+                <input type="text" id="author" placeholder="Author" required>
+                <div class="btn-cont">
+                    <button type="submit" role="button" class="submit-btn">Add</button>
+                </div>  
+            </form>
+        </section>
+        <section class="contact page active" id="contact">
+            <div class="contact-cont">
+                <h3 class="contact-header">contact information</h2>
+                    <div class="contact-info">
+                        <h4 class="contact-text">Do you have any questions or you want to reach out to say 'Hello'? You can reach out to us!</h4>
+                        <ul class="contacts">
+                            <li>Our e-mail: atemitope95@gmail.com</li>
+                            <li>Our Phone-No: +2347013226104</li>
+                            <li>Our Address: 10, Joseph Harison street Iwaya Yaba Lagos</li>
+                        </ul>
+                    </div>
+            </div>
+        </section>
     </header>
+    <footer class="footer">
+        <p>Copyright.</p>
+    </footer>
 <script src="book.js"></script>
 </body>
 </html>
