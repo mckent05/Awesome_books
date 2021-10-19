@@ -4,8 +4,6 @@
   const authorName = document.querySelector('#author');
   const books = document.querySelector('.books');
 
-  // let awesomeBooks = [];
-
   class awesomeBooks {
     constructor(myBooks) {
       myBooks=[];
@@ -69,7 +67,21 @@
       this.loadBook();
     };
 
-  }  ; 
+  }; 
+
+let newBook = new awesomeBooks();
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  newBook.addBook(bookTitle.value, authorName.value);
+  newBook.loadBook();
+  newBook.addToLocalStorage(bookTitle.value, authorName.value);
+  newBook.backToDefault();
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  newBook.loadLocalStorage();
+});
 
 
 
