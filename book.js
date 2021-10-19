@@ -2,27 +2,55 @@ const form = document.querySelector('.add_book');
 const bookTitle = document.querySelector('#title');
 const authorName = document.querySelector('#author');
 const books = document.querySelector('.books');
-
-class awesomeBooks {
+const alert = document.querySelector('.alert')
+class AwesomeBooks {
   constructor(myBooks) {
-    myBooks=[];
+    myBooks = [];
     this.myBooks = myBooks;
-  };
+  }
 
   addBook(title, author) {
-    this.myBooks.push({ title, author });
-  };
+    const book = { title, author };
+    this.myBooks.push(book);
+  }
 
   removeBook(index) {
-    this.myBooks = this.myBooks.filter((item) => item !== this.myBooks[index]);
+    const remove = this.myBooks[index];
+    this.myBooks = this.myBooks.filter((item) => item !== remove);
     return this.myBooks;
-  };
+  }
+
+  static displayAlert(message, action) {
+    alert.textContent = message;
+    alert.classList.add(`alert-${action}`);
+    setTimeout (function() {
+      alert.textContent = '';
+      alert.classList.remove(`alert-${action}`)
+    }, 5000)
+  }
+
+  static getLocalStorage() {
+    return localStorage.getItem('books') ? JSON.parse(localStorage.getItem('books')) : [];
+  }
+
+  static addToLocalStorage(title, author) {
+    const book = { title, author };
+    const items = AwesomeBooks.getLocalStorage();
+    items.push(book);
+    localStorage.setItem('books', JSON.stringify(items));
+  }
+
+  static editLocalStorage = (index) => {
+    const books = AwesomeBooks.getLocalStorage();
+    const items = books.filter((item) => item !== books[index]);
+    localStorage.setItem('books', JSON.stringify(items));
+  }
 
   loadBook() {
     let items = this.myBooks.map((item) => `<article class="list">
-    <p class="book-title">${item.title} by ${item.author}</p>
-    <button class="remove-btn">Remove</button>
-  </article>`);
+      <p class="book-title">${item.title} by ${item.author}</p>
+      <button class="remove-btn">Remove</button>
+    </article>`);
     items = items.join('');
     books.innerHTML = items;
     const deleteBookBtn = document.querySelectorAll('.remove-btn');
@@ -30,58 +58,41 @@ class awesomeBooks {
       btn.addEventListener('click', () => {
         this.removeBook(index);
         this.loadBook();
-        this.editLocalStorage(index);
+        AwesomeBooks.editLocalStorage(index);
         if (books.children.length === 0) {
           books.classList.remove('border')
         }
+        AwesomeBooks.displayAlert('book removed successfully', 'danger')
+
       });
     });
-  };
+  }
 
-  getLocalStorage() {
-    return localStorage.getItem('books') ? JSON.parse(localStorage.getItem('books')) : [];
-  };
+  static backToDefault() {
+    document.querySelector('.add_book').reset();
+  }
 
-  addToLocalstorage(title, author) {
-    const book = { title, author };
-    const items = this.getLocalStorage();
-    items.push(book);
-    localStorage.setItem('books', JSON.stringify(items));
-  };
-
-  editLocalStorage(index) {
-    const books = this.getLocalStorage();
-    const items = books.filter((item) => item !== books[index]);
-    localStorage.setItem('books', JSON.stringify(items));
-  };
-
-  backToDefault() {
-    authorName.value = '';
-    bookTitle.value = '';
-  };
-  
   loadLocalStorage() {
-    this.myBooks = this.getLocalStorage();
+    this.myBooks = AwesomeBooks.getLocalStorage();
     this.loadBook();
-  };
-};
+  }
 
-let newBook = new awesomeBooks();
+}
+
+const newBook = new AwesomeBooks();
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   newBook.addBook(bookTitle.value, authorName.value);
   newBook.loadBook();
-  newBook.addToLocalstorage(bookTitle.value, authorName.value);
-  newBook.backToDefault();
+  AwesomeBooks.addToLocalStorage(bookTitle.value, authorName.value);
+  AwesomeBooks.backToDefault();
   if (books.children.length > 0) {
     books.classList.add('border')
   }
+  AwesomeBooks.displayAlert('book added successfully', 'success')
 });
 
 window.addEventListener('DOMContentLoaded', () => {
   newBook.loadLocalStorage();
 });
-
-
-
