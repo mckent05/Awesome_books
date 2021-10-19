@@ -13,17 +13,18 @@ class AwesomeBooks {
     this.myBooks.push(book);
   }
 
-  removeBook(index){
+  removeBook(index) {
     const remove = this.myBooks[index];
     this.myBooks = this.myBooks.filter((item) => item !== remove);
     return this.myBooks;
   }
 
   getLocalStorage() {
-    return localStorage.getItem('books') ? JSON.parse(localStorage.getItem('books')) : [];
+    const items= localStorage.getItem('books') ? JSON.parse(localStorage.getItem('books')) : [];
+    return items
   }
 
-  addToLocalStorage(title, author){
+  addToLocalStorage(title, author) {
     const book = { title, author };
     const items = this.getLocalStorage();
     items.push(book);
@@ -56,16 +57,14 @@ class AwesomeBooks {
   }
 
   backToDefault() {
-    authorName.value = '';
-    bookTitle.value = '';
+    document.querySelector('.add_book').reset();
   }
 
-  loadLocalStorage(){
+  loadLocalStorage() {
     this.myBooks = this.getLocalStorage();
     this.loadBook();
   }
-
-  };
+}
 
 const newBook = new AwesomeBooks();
 
