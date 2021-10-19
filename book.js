@@ -19,20 +19,19 @@ class AwesomeBooks {
     return this.myBooks;
   }
 
-  getLocalStorage() {
-    const items= localStorage.getItem('books') ? JSON.parse(localStorage.getItem('books')) : [];
-    return items
+  static getLocalStorage() {
+    return localStorage.getItem('books') ? JSON.parse(localStorage.getItem('books')) : [];
   }
 
   addToLocalStorage(title, author) {
     const book = { title, author };
-    const items = this.getLocalStorage();
+    const items = AwesomeBooks.getLocalStorage();
     items.push(book);
     localStorage.setItem('books', JSON.stringify(items));
   }
 
   editLocalStorage = (index) => {
-    const books = this.getLocalStorage();
+    const books = AwesomeBooks.getLocalStorage();
     const items = books.filter((item) => item !== books[index]);
     localStorage.setItem('books', JSON.stringify(items));
   }
@@ -56,12 +55,12 @@ class AwesomeBooks {
     });
   }
 
-  backToDefault() {
+  static backToDefault() {
     document.querySelector('.add_book').reset();
   }
 
   loadLocalStorage() {
-    this.myBooks = this.getLocalStorage();
+    this.myBooks = AwesomeBooks.getLocalStorage();
     this.loadBook();
   }
 }
@@ -73,7 +72,7 @@ form.addEventListener('submit', (e) => {
   newBook.addBook(bookTitle.value, authorName.value);
   newBook.loadBook();
   newBook.addToLocalStorage(bookTitle.value, authorName.value);
-  newBook.backToDefault();
+  AwesomeBooks.backToDefault();
 });
 
 window.addEventListener('DOMContentLoaded', () => {
