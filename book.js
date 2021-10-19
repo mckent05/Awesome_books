@@ -1,75 +1,73 @@
+const form = document.querySelector('.add_book');
+const bookTitle = document.querySelector('#title');
+const authorName = document.querySelector('#author');
+const books = document.querySelector('.books');
+class AwesomeBooks {
+  constructor(myBooks) {
+    myBooks = [];
+    this.myBooks = myBooks;
+  }
 
-  const form = document.querySelector('.add_book');
-  const bookTitle = document.querySelector('#title');
-  const authorName = document.querySelector('#author');
-  const books = document.querySelector('.books');
+  addBook(title, author) {
+    const book = { title, author };
+    this.myBooks.push(book);
+  }
 
-  class awesomeBooks {
-    constructor(myBooks) {
-      myBooks=[];
-      this.myBooks = myBooks;
-    };
+  removeBook(index){
+    const remove = this.myBooks[index];
+    this.myBooks = this.myBooks.filter((item) => item !== remove);
+    return this.myBooks;
+  }
 
-    addBook(title, author) {
-      const book = { title, author };
-      this.myBooks.push(book);
-    };
+  getLocalStorage() {
+    return localStorage.getItem('books') ? JSON.parse(localStorage.getItem('books')) : [];
+  }
 
-    removeBook(index){
-      const remove = this.myBooks[index];
-      this.myBooks = this.myBooks.filter((item) => item !== remove);
-      return this.myBooks;
-    }; 
+  addToLocalStorage(title, author){
+    const book = { title, author };
+    const items = this.getLocalStorage();
+    items.push(book);
+    localStorage.setItem('books', JSON.stringify(items));
+  }
 
-    getLocalStorage() {
-      return localStorage.getItem('books') ? JSON.parse(localStorage.getItem('books')) : [];
-    };
+  editLocalStorage = (index) => {
+    const books = this.getLocalStorage();
+    const items = books.filter((item) => item !== books[index]);
+    localStorage.setItem('books', JSON.stringify(items));
+  }
 
-    addToLocalStorage(title, author){
-      const book = { title, author };
-      const items = this.getLocalStorage();
-      items.push(book);
-      localStorage.setItem('books', JSON.stringify(items));
-    };
-
-    editLocalStorage = (index) => {
-      const books = this.getLocalStorage();
-      const items = books.filter((item) => item !== books[index]);
-      localStorage.setItem('books', JSON.stringify(items));
-    };
-
-    loadBook() {
-      let items = this.myBooks.map((item) => `<article class="list">
-        <p class="book-title">${item.title}</p>
-        <p class="author-author">${item.author}</p>
-        <button class="remove-btn">Remove</button>
-        <hr>
-      </article>`);
-      items = items.join('');
-      books.innerHTML = items;
-      const deleteBookBtn = document.querySelectorAll('.remove-btn');
-      deleteBookBtn.forEach((btn, index) => {
-        btn.addEventListener('click', () => {
-          this.removeBook(index);
-          this.loadBook();
-          this.editLocalStorage(index);
-        });
+  loadBook() {
+    let items = this.myBooks.map((item) => `<article class="list">
+      <p class="book-title">${item.title}</p>
+      <p class="author-author">${item.author}</p>
+      <button class="remove-btn">Remove</button>
+      <hr>
+    </article>`);
+    items = items.join('');
+    books.innerHTML = items;
+    const deleteBookBtn = document.querySelectorAll('.remove-btn');
+    deleteBookBtn.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        this.removeBook(index);
+        this.loadBook();
+        this.editLocalStorage(index);
       });
-    };
+    });
+  }
 
-    backToDefault() {
-      authorName.value = '';
-      bookTitle.value = '';
-    };
+  backToDefault() {
+    authorName.value = '';
+    bookTitle.value = '';
+  }
 
-    loadLocalStorage(){
-      this.myBooks = this.getLocalStorage();
-      this.loadBook();
-    };
+  loadLocalStorage(){
+    this.myBooks = this.getLocalStorage();
+    this.loadBook();
+  }
 
-  }; 
+  };
 
-let newBook = new awesomeBooks();
+const newBook = new AwesomeBooks();
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -82,7 +80,3 @@ form.addEventListener('submit', (e) => {
 window.addEventListener('DOMContentLoaded', () => {
   newBook.loadLocalStorage();
 });
-
-
-
-
