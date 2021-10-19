@@ -1,3 +1,70 @@
 body {
   box-sizing: border-box;
+  margin: 0;
+}
+
+.list_books {
+  position: relative;
+  width: 100vw;
+}
+
+.book-cont {
+  position: relative;
+  width: 98%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  align-items: center;
+}
+
+.books {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.border {
+  outline: 1px solid red;
+}
+
+.list {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: ease-in linear 2s;
+}
+
+.list:nth-child(odd) {
+  background-color: grey;
+}
+
+.list:nth-child(even) {
+  background-color: whitesmoke;
+}
+
+.remove-btn {
+  height: 30px;
+  padding: 12px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  border-radius: 8px;
+  color: greenyellow;
+  background-color: green;
+  border: 0;
+  box-shadow: 0 6px 4px black;
+}
+.book-title {
+  margin-left: 20px;
+}
+
+.add_book {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

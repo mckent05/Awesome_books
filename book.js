@@ -20,10 +20,8 @@ class awesomeBooks {
 
   loadBook() {
     let items = this.myBooks.map((item) => `<article class="list">
-    <p class="book-title">${item.title}</p>
-    <p class="author-author">${item.author}</p>
+    <p class="book-title">${item.title} by ${item.author}</p>
     <button class="remove-btn">Remove</button>
-    <hr>
   </article>`);
     items = items.join('');
     books.innerHTML = items;
@@ -33,6 +31,9 @@ class awesomeBooks {
         this.removeBook(index);
         this.loadBook();
         this.editLocalStorage(index);
+        if (books.children.length === 0) {
+          books.classList.remove('border')
+        }
       });
     });
   };
@@ -73,8 +74,14 @@ form.addEventListener('submit', (e) => {
   newBook.loadBook();
   newBook.addToLocalstorage(bookTitle.value, authorName.value);
   newBook.backToDefault();
+  if (books.children.length > 0) {
+    books.classList.add('border')
+  }
 });
 
 window.addEventListener('DOMContentLoaded', () => {
   newBook.loadLocalStorage();
 });
+
+
+
