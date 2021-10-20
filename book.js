@@ -50,6 +50,10 @@ class AwesomeBooks {
     let items = this.myBooks.map((item) => `<article class="list">
       <p class="book-title">${item.title} by ${item.author}</p>
       <button class="remove-btn">Remove</button>
+      <p class="book-title">${item.title}</p>
+      <p class="author-author">${item.author}</p>
+      <button class="remove-btn">Remove</button>
+      <hr>
     </article>`);
     items = items.join('');
     books.innerHTML = items;
@@ -66,7 +70,7 @@ class AwesomeBooks {
       });
     });
   }
-
+  
   static backToDefault() {
     document.querySelector('.add_book').reset();
   }
@@ -75,7 +79,6 @@ class AwesomeBooks {
     this.myBooks = AwesomeBooks.getLocalStorage();
     this.loadBook();
   }
-
 }
 
 const newBook = new AwesomeBooks();
