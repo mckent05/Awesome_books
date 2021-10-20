@@ -2,7 +2,7 @@ const form = document.querySelector('.add_book');
 const bookTitle = document.querySelector('#title');
 const authorName = document.querySelector('#author');
 const books = document.querySelector('.books');
-const alert = document.querySelector('.alert')
+const alert = document.querySelector('.alert');
 class AwesomeBooks {
   constructor(myBooks) {
     myBooks = [];
@@ -23,10 +23,10 @@ class AwesomeBooks {
   static displayAlert(message, action) {
     alert.textContent = message;
     alert.classList.add(`alert-${action}`);
-    setTimeout (function() {
+    setTimeout (() => {
       alert.textContent = '';
-      alert.classList.remove(`alert-${action}`)
-    }, 5000)
+      alert.classList.remove(`alert-${action}`);
+    }, 5000);
   }
 
   static getLocalStorage() {
@@ -60,9 +60,9 @@ class AwesomeBooks {
         this.loadBook();
         AwesomeBooks.editLocalStorage(index);
         if (books.children.length === 0) {
-          books.classList.remove('border')
+          books.classList.remove('border');
         }
-        AwesomeBooks.displayAlert('book removed successfully', 'danger')
+        AwesomeBooks.displayAlert('book removed successfully', 'danger');
 
       });
     });
@@ -88,9 +88,9 @@ form.addEventListener('submit', (e) => {
   AwesomeBooks.addToLocalStorage(bookTitle.value, authorName.value);
   AwesomeBooks.backToDefault();
   if (books.children.length > 0) {
-    books.classList.add('border')
+    books.classList.add('border');
   }
-  AwesomeBooks.displayAlert('book added successfully', 'success')
+  AwesomeBooks.displayAlert('book added successfully', 'success');
 });
 
 window.addEventListener('DOMContentLoaded', () => {
