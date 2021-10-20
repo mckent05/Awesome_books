@@ -30,7 +30,7 @@ body {
 
 .alert-success {
   display: flex;
-  color: #00ff00;
+  color: #0f0;
 }
 
 .alert-danger {
@@ -118,12 +118,14 @@ input {
   border: none;
   box-shadow: 0 6px 6px #3b3b38;
 }
+
 .btn-cont {
   width: 50%;
   display: flex;
   justify-content: flex-end;
   margin-top: 10px;
 }
+
 .submit-btn {
   display: flex;
   font-size: large;
@@ -133,8 +135,8 @@ input {
   align-items: center;
   justify-content: center;
   background-color: #fff;
-  color: #00ff00;
-  outline: 1px solid #00ff00;
+  color: #0f0;
+  outline: 1px solid #0f0;
   border: none;
   box-shadow: 0 4px 6px #3b3b38;
   font-weight: 600;
@@ -143,6 +145,6 @@ input {
 
 .submit-btn:hover {
   color: #fff;
-  background-color: #00ff00;
-  outline: #00ff00;
+  background-color: #0f0;
+  outline: #0f0;
 }
