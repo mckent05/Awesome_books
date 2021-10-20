@@ -3,8 +3,10 @@ const bookTitle = document.querySelector('#title');
 const authorName = document.querySelector('#author');
 const books = document.querySelector('.books');
 const alert = document.querySelector('.alert');
-const links = document.querySelectorAll('.links a')
-const pages = document.querySelectorAll('.page')
+const links = document.querySelectorAll('.links a');
+const pages = document.querySelectorAll('.page');
+const time = document.querySelectorAll('.month');
+const DateTime = luxon.DateTime;
 class AwesomeBooks {
   constructor(myBooks) {
     myBooks = [];
@@ -116,3 +118,7 @@ form.addEventListener('submit', (e) => {
 window.addEventListener('DOMContentLoaded', () => {
   newBook.loadLocalStorage();
 });
+
+const dt = DateTime.now();
+let month = dt.month
+console.log(month)
