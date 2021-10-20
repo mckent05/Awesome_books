@@ -131,6 +131,5 @@ window.addEventListener('DOMContentLoaded', () => {
 
 const dt = DateTime.now();
 let today = dt.toLocaleString(DateTime.DATETIME_MED);
-console.log(today);
 time.textContent = today;
 
