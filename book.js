@@ -2,6 +2,7 @@ const form = document.querySelector('.add_book');
 const bookTitle = document.querySelector('#title');
 const authorName = document.querySelector('#author');
 const books = document.querySelector('.books');
+const alert = document.querySelector('.alert');
 class AwesomeBooks {
   constructor(myBooks) {
     myBooks = [];
@@ -17,6 +18,15 @@ class AwesomeBooks {
     const remove = this.myBooks[index];
     this.myBooks = this.myBooks.filter((item) => item !== remove);
     return this.myBooks;
+  }
+
+  static displayAlert(message, action) {
+    alert.textContent = message;
+    alert.classList.add(`alert-${action}`);
+    setTimeout(() => {
+      alert.textContent = '';
+      alert.classList.remove(`alert-${action}`);
+    }, 5000);
   }
 
   static getLocalStorage() {
@@ -38,10 +48,8 @@ class AwesomeBooks {
 
   loadBook() {
     let items = this.myBooks.map((item) => `<article class="list">
-      <p class="book-title">${item.title}</p>
-      <p class="author-author">${item.author}</p>
+      <p class="book-title">${item.title} by ${item.author}</p>
       <button class="remove-btn">Remove</button>
-      <hr>
     </article>`);
     items = items.join('');
     books.innerHTML = items;
@@ -51,6 +59,10 @@ class AwesomeBooks {
         this.removeBook(index);
         this.loadBook();
         AwesomeBooks.editLocalStorage(index);
+        if (books.children.length === 0) {
+          books.classList.remove('border');
+        }
+        AwesomeBooks.displayAlert('book removed successfully', 'danger');
       });
     });
   }
@@ -73,6 +85,10 @@ form.addEventListener('submit', (e) => {
   newBook.loadBook();
   AwesomeBooks.addToLocalStorage(bookTitle.value, authorName.value);
   AwesomeBooks.backToDefault();
+  if (books.children.length > 0) {
+    books.classList.add('border');
+  }
+  AwesomeBooks.displayAlert('book added successfully', 'success');
 });
 
 window.addEventListener('DOMContentLoaded', () => {

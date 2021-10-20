@@ -1,3 +1,152 @@
 body {
   box-sizing: border-box;
+  margin: 0;
+  background: url(images/imagebackg.jpg) center/cover no-repeat;
+  height: auto;
+  max-width: 100vw;
+}
+
+.list-books {
+  position: relative;
+  width: 98vw;
+}
+
+.book-cont {
+  position: relative;
+  width: 98%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  align-items: center;
+}
+
+.alert {
+  font-size: 25px;
+  text-transform: capitalize;
+  margin-top: -10px;
+  display: none;
+  font-weight: 600;
+}
+
+.alert-success {
+  display: flex;
+  color: #0f0;
+}
+
+.alert-danger {
+  display: flex;
+  color: red;
+}
+
+.books {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-header {
+  color: blue;
+  font-size: 30px;
+  font-weight: 800;
+  text-transform: capitalize;
+}
+
+.border {
+  outline: 1px solid white;
+}
+
+.list {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list:nth-child(odd) {
+  background-color: rgb(212, 212, 212);
+}
+
+.list:nth-child(even) {
+  background-color: whitesmoke;
+}
+
+.remove-btn {
+  height: 30px;
+  padding: 12px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  border-radius: 8px;
+  color: white;
+  background-color: #ff0e0a;
+  border: 0;
+  transition: ease-in 0.3s;
+}
+
+.remove-btn:hover {
+  box-shadow: 0 4px 6px black;
+}
+
+.book-title {
+  margin-left: 20px;
+  font-size: 17px;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.add_book {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.form-title {
+  color: blue;
+  font-size: 30px;
+  text-transform: capitalize;
+}
+
+input {
+  width: 50%;
+  margin: 5px;
+  padding: 15px 12px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 6px 6px #3b3b38;
+}
+
+.btn-cont {
+  width: 51.3%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.submit-btn {
+  display: flex;
+  font-size: large;
+  border-radius: 8px;
+  padding: 12px 10px;
+  width: 15%;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  color: #0f0;
+  outline: 1px solid #0f0;
+  border: none;
+  box-shadow: 0 4px 6px #3b3b38;
+  font-weight: 600;
+  transition: all ease-in-out 0.5s;
+}
+
+.submit-btn:hover {
+  color: #fff;
+  background-color: #0f0;
+  outline: #0f0;
 }
