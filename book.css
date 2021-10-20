@@ -2,15 +2,19 @@ body {
   box-sizing: border-box;
   margin: 0;
   background: url(images/imagebackg.jpg) center/cover no-repeat;
-  height: 100vh;
-
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
 }
+
 
 .nav {
   width: 100%;
-  position: relative;
+  position: fixed;
   background-color: #fff;
   box-shadow: 0 6px 8px #3b3b38;
+  z-index: 5;
 }
 
 .nav-cont {
@@ -30,6 +34,18 @@ body {
   font-size: 20px;
   color: black;
   background-color: floralwhite;
+}
+
+.time-cont {
+  display: flex;
+  width: 95%;
+  justify-content: flex-end;
+  margin-top: 70px;
+}
+
+.time {
+  font-weight: 600;
+  font-size: 20px;
 }
 
 .nav-links {
@@ -57,6 +73,7 @@ body {
   color: black;
   width: 100%;
   text-align: center;
+  font-weight: 700;
 }
 
 .list-books {
@@ -98,6 +115,7 @@ body {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  margin-bottom: 150px;
 }
 
 .book-header {
@@ -240,10 +258,16 @@ input {
 
 .footer {
   display: flex;
-  background: red;
-  position: absolute;
-  bottom: 0;
+  background: #3b3b38;
   width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.footer p {
+  font-size: 18px;
+  font-weight: 700;
+  margin-left: 5%;
   
 }
 

@@ -2,10 +2,12 @@ const form = document.querySelector('.add_book');
 const bookTitle = document.querySelector('#title');
 const authorName = document.querySelector('#author');
 const books = document.querySelector('.books');
+const alertAdd = document.querySelector('.alert-add');
+const alertRemove = document.querySelector('.alert-remove');
 const alert = document.querySelector('.alert');
 const links = document.querySelectorAll('.links a');
 const pages = document.querySelectorAll('.page');
-const time = document.querySelectorAll('.month');
+const time = document.querySelector('.time');
 const DateTime = luxon.DateTime;
 class AwesomeBooks {
   constructor(myBooks) {
@@ -25,12 +27,22 @@ class AwesomeBooks {
   }
 
   static displayAlert(message, action) {
-    alert.textContent = message;
-    alert.classList.add(`alert-${action}`);
-    setTimeout (function() {
-      alert.textContent = '';
-      alert.classList.remove(`alert-${action}`)
-    }, 5000)
+    if (action === 'danger'){
+      alertRemove.textContent = message;
+      alertRemove.classList.add(`alert-${action}`);
+      setTimeout(() => {
+        alertRemove.textContent = '';
+        alertRemove.classList.remove(`alert-${action}`)
+      }, 5000);
+    }
+    else {
+      alertAdd.textContent = message;
+      alertAdd.classList.add(`alert-${action}`);
+      setTimeout (() => {
+        alertAdd.textContent = '';
+        alertAdd.classList.remove(`alert-${action}`)
+      }, 5000);
+    } 
   }
 
   static getLocalStorage() {
@@ -66,8 +78,7 @@ class AwesomeBooks {
         if (books.children.length === 0) {
           books.classList.remove('border')
         }
-        AwesomeBooks.displayAlert('book removed successfully', 'danger')
-
+        AwesomeBooks.displayAlert('book removed successfully', 'danger');
       });
     });
   }
@@ -85,20 +96,19 @@ class AwesomeBooks {
 
 links.forEach((link) => {
   link.addEventListener('click', (e) => {
-    const id =e.currentTarget.getAttribute("href").slice(1)
-    link.parentElement.classList.add('active')
+    const id =e.currentTarget.getAttribute("href").slice(1);
+    link.parentElement.classList.add('active');
     links.forEach((myLink) => {
       if (myLink !== link) {
-        myLink.parentElement.classList.remove('active')
+        myLink.parentElement.classList.remove('active');
       }
     })
     pages.forEach((page) => {
-      page.classList.remove('active')
+      page.classList.remove('active');
     })
-    const displaypage = document.getElementById(id)
-    displaypage.classList.add('active')
-  })
-  
+    const displaypage = document.getElementById(id);
+    displaypage.classList.add('active');
+  })  
 })
 
 const newBook = new AwesomeBooks();
@@ -110,9 +120,9 @@ form.addEventListener('submit', (e) => {
   AwesomeBooks.addToLocalStorage(bookTitle.value, authorName.value);
   AwesomeBooks.backToDefault();
   if (books.children.length > 0) {
-    books.classList.add('border')
+    books.classList.add('border');
   }
-  AwesomeBooks.displayAlert('book added successfully', 'success')
+  AwesomeBooks.displayAlert('book added successfully', 'success');
 });
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -120,5 +130,7 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 const dt = DateTime.now();
-let month = dt.month
-console.log(month)
+let today = dt.toLocaleString(DateTime.DATETIME_MED);
+console.log(today);
+time.textContent = today;
+

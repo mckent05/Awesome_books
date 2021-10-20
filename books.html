@@ -3,6 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){window.dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HQREYRLMDN');
+    </script>
+    <script src="https://kit.fontawesome.com/31074aacc5.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="book.css">
     <script src="luxon.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,13 +34,13 @@
                 </div>
             </div> 
         </nav>
-        <div class="time">
-            <h2><span class="time month">tober</span><span class="time date"> 12</span><span class="time year"> 2021</span></h2>
+        <div class="time-cont">
+            <p class="time"></p>
         </div>
         <section class="list-books page" id="book-list">
             <div class="book-cont">
                 <h1 class="book-header">All Awesome books</h1>
-                <p class="alert">Book Added</p>
+                <p class="alert alert-remove">Book Added</p>
                 <div class="books">
                     
                 </div>
@@ -37,6 +49,7 @@
         <section class="add-books page" id="add_books">
             <form action="#" class="add_book">
                 <h2 class="form-title">Add a book</h2>
+                <p class="alert alert-add">Book Added</p>
                 <input type="text" id="title" placeholder="Title" required>
                 <input type="text" id="author" placeholder="Author" required>
                 <div class="btn-cont">
@@ -59,7 +72,7 @@
         </section>
     </header>
     <footer class="footer">
-        <p>Copyright.</p>
+        <p><i class="fas fa-copyright"></i> Copyright 2021</p>
     </footer>
 <script src="book.js"></script>
 </body>
