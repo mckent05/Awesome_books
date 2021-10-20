@@ -2,7 +2,8 @@ body {
   box-sizing: border-box;
   margin: 0;
   background: url(images/imagebackg.jpg) center/cover no-repeat;
-  height: 100vh;
+  height: auto;
+  max-width: 100vw;
 }
 
 .list-books {
@@ -92,7 +93,7 @@ body {
 
 .book-title {
   margin-left: 20px;
-  font-size: 15px;
+  font-size: 17px;
   text-transform: capitalize;
   font-weight: 600;
 }
@@ -102,11 +103,12 @@ body {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  margin-bottom: 50px;
 }
 
 .form-title {
   color: blue;
-  font-size: 24px;
+  font-size: 30px;
   text-transform: capitalize;
 }
 

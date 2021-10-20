@@ -7,11 +7,7 @@
 > This project is an Awesome_books project, that adds the title and author of a book to an array of objects.
 > When the user clicks on the 'add' button, the values entered into the Title and author input are added to an array of object that are in turn displayed on the page.
 > Similarly, when the user clicks on the 'remove' button, the correct book is removed from the array of objects, and also removed from the page.
-
->Refactored the code to use javaScript Classes intead of Objects and arrays.
-
->Refactored the code to use javaScript Classes intead of Objects and arrays.
-
+> Refactored the code to use javaScript Classes intead of Objects and arrays.
 
 # Live View
 > To view this project live, please visit this [page](https://mckent05.github.io/Awesome_books/books.html)
