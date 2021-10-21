@@ -2,6 +2,7 @@ const form = document.querySelector('.add_book');
 const bookTitle = document.querySelector('#title');
 const authorName = document.querySelector('#author');
 const books = document.querySelector('.books');
+
 const alertAdd = document.querySelector('.alert-add');
 const alertRemove = document.querySelector('.alert-remove');
 const alert = document.querySelector('.alert');
@@ -9,6 +10,7 @@ const links = document.querySelectorAll('.links a');
 const pages = document.querySelectorAll('.page');
 const time = document.querySelector('.time');
 const DateTime = luxon.DateTime;
+
 class AwesomeBooks {
   constructor(myBooks) {
     myBooks = [];
