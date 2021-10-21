@@ -27,20 +27,20 @@ class AwesomeBooks {
   }
 
   static displayAlert(message, action) {
-    if (action === 'danger'){
+    if (action === 'danger') {
       alertRemove.textContent = message;
       alertRemove.classList.add(`alert-${action}`);
       setTimeout(() => {
         alertRemove.textContent = '';
-        alertRemove.classList.remove(`alert-${action}`)
+        alertRemove.classList.remove(`alert-${action}`);
       }, 5000);
     }
     else {
       alertAdd.textContent = message;
       alertAdd.classList.add(`alert-${action}`);
-      setTimeout (() => {
+      setTimeout(() => {
         alertAdd.textContent = '';
-        alertAdd.classList.remove(`alert-${action}`)
+        alertAdd.classList.remove(`alert-${action}`);
       }, 5000);
     } 
   }
@@ -76,7 +76,7 @@ class AwesomeBooks {
         this.loadBook();
         AwesomeBooks.editLocalStorage(index);
         if (books.children.length === 0) {
-          books.classList.remove('border')
+          books.classList.remove('border');
         }
         AwesomeBooks.displayAlert('book removed successfully', 'danger');
       });
@@ -91,12 +91,11 @@ class AwesomeBooks {
     this.myBooks = AwesomeBooks.getLocalStorage();
     this.loadBook();
   }
-
 }
 
 links.forEach((link) => {
   link.addEventListener('click', (e) => {
-    const id =e.currentTarget.getAttribute("href").slice(1);
+    const id = e.currentTarget.getAttribute("href").slice(1);
     link.parentElement.classList.add('active');
     links.forEach((myLink) => {
       if (myLink !== link) {

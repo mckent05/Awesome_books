@@ -8,6 +8,11 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.fa {
+  color: white;
+  transform: scale(1.6);
+}
+
 
 .nav {
   width: 100%;
@@ -229,8 +234,22 @@ input {
 .contact {
   position: relative;
   width: 100%;
-  margin-top: 5%;
+  margin-top: 2%;
   display: none;
+}
+
+.contacts {
+  margin: 0;
+  list-style: none;
+}
+
+.contacts li {
+  margin-bottom: 15px;
+}
+
+.contact .fa {
+  transform: scale(1.2);
+  color: black;
 }
 
 .contact-cont {
@@ -257,18 +276,34 @@ input {
 }
 
 .footer {
-  display: flex;
   background: #3b3b38;
   width: 100%;
   position: fixed;
   bottom: 0;
+  height: 7vh;
+  display: flex;
+  align-items: center;
 }
 
 .footer p {
   font-size: 18px;
   font-weight: 700;
-  margin-left: 5%;
-  
+}
+
+.social-links {
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  column-gap: 70px;
+  align-items: center;
+}
+
+.footer div {
+  width: 90%;
+  margin: 0 auto;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .page.active {
