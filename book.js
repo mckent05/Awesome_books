@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const form = document.querySelector('.add_book');
 const bookTitle = document.querySelector('#title');
 const authorName = document.querySelector('#author');
@@ -7,7 +8,7 @@ const alertRemove = document.querySelector('.alert-remove');
 const links = document.querySelectorAll('.links a');
 const pages = document.querySelectorAll('.page');
 const time = document.querySelector('.time');
-var DateTime = luxon.DateTime;
+const { DateTime } = luxon;
 
 class AwesomeBooks {
   constructor(myBooks) {
@@ -144,6 +145,4 @@ window.addEventListener('DOMContentLoaded', () => {
   newBook.loadLocalStorage();
 });
 
-const dt = DateTime.now();
-const today = dt.toLocaleString(DateTime.DATETIME_MED);
-time.textContent = today;
+setInterval(() => { time.innerHTML = `${DateTime.now().toLocaleString(DateTime.DATETIME_MED)}`; }, 1000);
