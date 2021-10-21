@@ -7,7 +7,7 @@ const alertRemove = document.querySelector('.alert-remove');
 const links = document.querySelectorAll('.links a');
 const pages = document.querySelectorAll('.page');
 const time = document.querySelector('.time');
-const DateTime = luxon.DateTime;
+const {DateTime} = luxon;
 
 class AwesomeBooks {
   constructor(myBooks) {
@@ -111,20 +111,20 @@ links.forEach((link) => {
 
 links.forEach((link) => {
   link.addEventListener('click', (e) => {
-    const id = e.currentTarget.getAttribute("href").slice(1);
+    const id = e.currentTarget.getAttribute('href').slice(1);
     link.parentElement.classList.add('active');
     links.forEach((myLink) => {
       if (myLink !== link) {
         myLink.parentElement.classList.remove('active');
       }
-    })
+    });
     pages.forEach((page) => {
       page.classList.remove('active');
-    })
+    });
     const displaypage = document.getElementById(id);
     displaypage.classList.add('active');
-  })  
-})
+  });
+});
 
 const newBook = new AwesomeBooks();
 
