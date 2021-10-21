@@ -2,10 +2,8 @@ const form = document.querySelector('.add_book');
 const bookTitle = document.querySelector('#title');
 const authorName = document.querySelector('#author');
 const books = document.querySelector('.books');
-
 const alertAdd = document.querySelector('.alert-add');
 const alertRemove = document.querySelector('.alert-remove');
-const alert = document.querySelector('.alert');
 const links = document.querySelectorAll('.links a');
 const pages = document.querySelectorAll('.page');
 const time = document.querySelector('.time');
@@ -36,15 +34,14 @@ class AwesomeBooks {
         alertRemove.textContent = '';
         alertRemove.classList.remove(`alert-${action}`);
       }, 5000);
-    }
-    else {
+    }  else {
       alertAdd.textContent = message;
       alertAdd.classList.add(`alert-${action}`);
       setTimeout(() => {
         alertAdd.textContent = '';
         alertAdd.classList.remove(`alert-${action}`);
       }, 5000);
-    } 
+    }
   }
 
   static getLocalStorage() {
@@ -97,20 +94,20 @@ class AwesomeBooks {
 
 links.forEach((link) => {
   link.addEventListener('click', (e) => {
-    const id = e.currentTarget.getAttribute("href").slice(1);
+    const id = e.currentTarget.getAttribute('href').slice(1);
     link.parentElement.classList.add('active');
     links.forEach((myLink) => {
       if (myLink !== link) {
         myLink.parentElement.classList.remove('active');
       }
-    })
+    });
     pages.forEach((page) => {
       page.classList.remove('active');
-    })
+    });
     const displaypage = document.getElementById(id);
     displaypage.classList.add('active');
-  })  
-})
+  }); 
+});
 
 const newBook = new AwesomeBooks();
 
@@ -131,6 +128,5 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 const dt = DateTime.now();
-let today = dt.toLocaleString(DateTime.DATETIME_MED);
+const today = dt.toLocaleString(DateTime.DATETIME_MED);
 time.textContent = today;
-
