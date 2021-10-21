@@ -34,7 +34,7 @@ class AwesomeBooks {
         alertRemove.textContent = '';
         alertRemove.classList.remove(`alert-${action}`);
       }, 5000);
-    }  else {
+    } else {
       alertAdd.textContent = message;
       alertAdd.classList.add(`alert-${action}`);
       setTimeout(() => {
@@ -106,7 +106,7 @@ links.forEach((link) => {
     });
     const displaypage = document.getElementById(id);
     displaypage.classList.add('active');
-  }); 
+  });
 });
 
 const newBook = new AwesomeBooks();
