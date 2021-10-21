@@ -1,8 +1,15 @@
+/* eslint-disable no-undef */
 const form = document.querySelector('.add_book');
 const bookTitle = document.querySelector('#title');
 const authorName = document.querySelector('#author');
 const books = document.querySelector('.books');
-const alert = document.querySelector('.alert');
+const alertAdd = document.querySelector('.alert-add');
+const alertRemove = document.querySelector('.alert-remove');
+const links = document.querySelectorAll('.links a');
+const pages = document.querySelectorAll('.page');
+const time = document.querySelector('.time');
+const { DateTime } = luxon;
+
 class AwesomeBooks {
   constructor(myBooks) {
     myBooks = [];
@@ -21,12 +28,21 @@ class AwesomeBooks {
   }
 
   static displayAlert(message, action) {
-    alert.textContent = message;
-    alert.classList.add(`alert-${action}`);
-    setTimeout(() => {
-      alert.textContent = '';
-      alert.classList.remove(`alert-${action}`);
-    }, 5000);
+    if (action === 'danger') {
+      alertRemove.textContent = message;
+      alertRemove.classList.add(`alert-${action}`);
+      setTimeout(() => {
+        alertRemove.textContent = '';
+        alertRemove.classList.remove(`alert-${action}`);
+      }, 5000);
+    } else {
+      alertAdd.textContent = message;
+      alertAdd.classList.add(`alert-${action}`);
+      setTimeout(() => {
+        alertAdd.textContent = '';
+        alertAdd.classList.remove(`alert-${action}`);
+      }, 5000);
+    }
   }
 
   static getLocalStorage() {
@@ -77,6 +93,40 @@ class AwesomeBooks {
   }
 }
 
+links.forEach((link) => {
+  link.addEventListener('click', (e) => {
+    const id = e.currentTarget.getAttribute('href').slice(1);
+    link.parentElement.classList.add('active');
+    links.forEach((myLink) => {
+      if (myLink !== link) {
+        myLink.parentElement.classList.remove('active');
+      }
+    });
+    pages.forEach((page) => {
+      page.classList.remove('active');
+    });
+    const displaypage = document.getElementById(id);
+    displaypage.classList.add('active');
+  });
+});
+
+links.forEach((link) => {
+  link.addEventListener('click', (e) => {
+    const id = e.currentTarget.getAttribute('href').slice(1);
+    link.parentElement.classList.add('active');
+    links.forEach((myLink) => {
+      if (myLink !== link) {
+        myLink.parentElement.classList.remove('active');
+      }
+    });
+    pages.forEach((page) => {
+      page.classList.remove('active');
+    });
+    const displaypage = document.getElementById(id);
+    displaypage.classList.add('active');
+  });
+});
+
 const newBook = new AwesomeBooks();
 
 form.addEventListener('submit', (e) => {
@@ -94,3 +144,5 @@ form.addEventListener('submit', (e) => {
 window.addEventListener('DOMContentLoaded', () => {
   newBook.loadLocalStorage();
 });
+
+setInterval(() => { time.innerHTML = `${DateTime.now().toLocaleString(DateTime.DATETIME_MED)}`; }, 1000);

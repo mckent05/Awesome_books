@@ -3,12 +3,88 @@ body {
   margin: 0;
   background: url(images/imagebackg.jpg) center/cover no-repeat;
   height: auto;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+}
+
+.fa {
+  color: white;
+  transform: scale(1.6);
+}
+
+.nav {
+  width: 100%;
+  position: fixed;
+  background-color: #fff;
+  box-shadow: 0 6px 8px #3b3b38;
+  z-index: 5;
+}
+
+.nav-cont {
+  position: relative;
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 3px;
+}
+
+.logo {
+  border: 2px solid blue;
+  padding: 12px 10px;
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  background-color: floralwhite;
+}
+
+.time-cont {
+  display: flex;
+  width: 95%;
+  justify-content: flex-end;
+  margin-top: 70px;
+}
+
+.time {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+}
+
+.links {
+  font-size: 20px;
+  text-transform: capitalize;
+  border-right: 1px solid grey;
+  padding: 10px 6px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.links:last-of-type {
+  border: none;
+}
+
+.links a {
+  text-decoration: none;
+  color: black;
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
   max-width: 100vw;
 }
 
 .list-books {
   position: relative;
   width: 98vw;
+  display: none;
 }
 
 .book-cont {
@@ -44,11 +120,12 @@ body {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  margin-bottom: 150px;
 }
 
 .book-header {
   color: blue;
-  font-size: 30px;
+  font-size: 38px;
   font-weight: 800;
   text-transform: capitalize;
 }
@@ -93,9 +170,15 @@ body {
 
 .book-title {
   margin-left: 20px;
-  font-size: 17px;
+  font-size: 18px;
   text-transform: capitalize;
   font-weight: 600;
+}
+
+.add-books {
+  position: relative;
+  width: 100%;
+  display: none;
 }
 
 .add_book {
@@ -108,7 +191,7 @@ body {
 
 .form-title {
   color: blue;
-  font-size: 30px;
+  font-size: 38px;
   text-transform: capitalize;
 }
 
@@ -149,4 +232,91 @@ input {
   color: #fff;
   background-color: #0f0;
   outline: #0f0;
+}
+
+.contact {
+  position: relative;
+  width: 100%;
+  margin-top: 2%;
+  display: none;
+}
+
+.contacts {
+  margin: 0;
+  list-style: none;
+}
+
+.contacts li {
+  margin-bottom: 15px;
+}
+
+.contact .fa {
+  transform: scale(1.2);
+  color: black;
+}
+
+.contact-cont {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 15px;
+  align-items: center;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.contact-header {
+  position: relative;
+  color: blue;
+  font-size: 38px;
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.contact-info {
+  font-size: 28px;
+}
+
+.footer {
+  background: #3b3b38;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height: 7vh;
+  display: flex;
+  align-items: center;
+}
+
+.footer p {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.social-links {
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  column-gap: 70px;
+  align-items: center;
+}
+
+.footer div {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page.active {
+  display: flex;
+}
+
+.links.active {
+  border: 2px solid blue;
+}
+
+.active a {
+  color: blue;
 }
