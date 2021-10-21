@@ -94,6 +94,23 @@ class AwesomeBooks {
 }
 
 
+links.forEach((link) => {
+  link.addEventListener('click', (e) => {
+    const id = e.currentTarget.getAttribute("href").slice(1);
+    link.parentElement.classList.add('active');
+    links.forEach((myLink) => {
+      if (myLink !== link) {
+        myLink.parentElement.classList.remove('active');
+      }
+    })
+    pages.forEach((page) => {
+      page.classList.remove('active');
+    })
+    const displaypage = document.getElementById(id);
+    displaypage.classList.add('active');
+  })  
+})
+
 const newBook = new AwesomeBooks();
 
 form.addEventListener('submit', (e) => {
