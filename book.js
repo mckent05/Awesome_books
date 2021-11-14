@@ -145,4 +145,4 @@ window.addEventListener('DOMContentLoaded', () => {
   newBook.loadLocalStorage();
 });
 
-setInterval(() => { time.innerHTML = `${DateTime.now().toLocaleString(DateTime.DATETIME_MED)}`; }, 1000);
+setInterval(() => { time.innerHTML = `${DateTime.now().toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS)}`; }, 1000);
