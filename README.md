@@ -2,6 +2,7 @@
 
 > This is my Awesome Book project.
 > I created this project by first designing it using wireframes.
+> Used Luxon Library for displaying the time.
 
 #About Project.
 > This project is an Awesome_books project, that adds the title and author of a book to an array of objects.
